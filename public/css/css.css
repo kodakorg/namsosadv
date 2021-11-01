@@ -1,0 +1,78 @@
+body {
+  background: #373B44;
+  background: -webkit-linear-gradient(to right, #0c647e, #373B44);
+  background: linear-gradient(to right, #0c647e, #373B44);
+  font: sans-serif;
+  overflow: visible;
+}
+
+p {
+  max-width: 600px;
+}
+
+.header {
+  font-size: 0.8em;
+}
+
+.logo {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: white;
+  width: 100%;
+  max-width: 600px;
+}
+
+span { 
+  font-size: 1em;
+}
+
+span b {
+  font-size: 160%;
+  font-weight: normal;
+}
+
+.logo-top {
+  text-align: left;
+  padding-left: 1em;
+  line-height: normal;
+}
+
+.logo-bottom {
+  text-align: left;
+  padding-left: 4em;
+  padding-bottom: 1em;
+}
+
+.map-responsive{
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+}
+
+.map-responsive iframe{
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+
+@media screen and (min-width: 601px) {
+  .logo-top {
+    font-size: 2em;
+  }
+
+  .logo-bottom {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .logo-top {
+    font-size: 6vw;
+  }
+
+  .logo-bottom {
+    font-size: 3vw;
+  }
+}
