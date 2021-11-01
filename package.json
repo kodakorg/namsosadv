@@ -1,7 +1,7 @@
 {
-  "name": "athenaeum",
+  "name": "namsosadv",
   "version": "1.0.0",
-  "description": "Hjemmeside til namsos athenaeum",
+  "description": "Hjemmeside til namsos advokatene",
   "main": "server.js",
   "scripts": {
     "start": "node server"
