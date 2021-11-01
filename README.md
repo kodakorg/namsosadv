@@ -1,0 +1,2 @@
+# namsosadv
+Namsos Advokatene
