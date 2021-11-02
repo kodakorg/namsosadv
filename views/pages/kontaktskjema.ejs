@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <div class="bg-white p-3">
+    <h3>Kontaktskjema</h3>
+    <form action="/kontaktskjema" id="kontaktskjema" method="post">
+      <div>
+        <label for="fnavn" class="form-label fw-bold">Fornavn:</label>
+        <input type="text" class="form-control" name="fnavn" required>
+      </div>
+      <div>
+        <label for="enavn" class="form-label fw-bold">Etternavn:</label>
+        <input type="text" class="form-control" name="enavn">
+      </div>
+      <div>
+        <label for="epost" class="form-label fw-bold">E-post:</label>
+        <input type="text" id="epost" class="form-control" name="epost">
+      </div>
+      <div>
+        <label for="tlf" class="form-label fw-bold">Telefonnummer:</label>
+        <input type="number" class="form-control" name="tlf">
+      </div>
+      <div>
+        <label for="tekst" class="form-label fw-bold">Forespørsel:</label>
+        <textarea class="form-control" id="tekst" name="tekst" rows="3"></textarea>
+      </div>
+      <button class="btn btn-primary" id="myButton">Submit</button>
+    </form>
+  </div>
+  <br>
+
+  <footer>
+    <% include ../partials/foother %>
+  </footer>
+
+</body>
+
+
+</html>
