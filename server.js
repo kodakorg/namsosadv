@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000
 const nodemailer = require('nodemailer');
+const http = require("http");
 
 var morgan = require('morgan')
 var favicon = require('serve-favicon');
@@ -53,6 +54,11 @@ app.get('/kart', function (req, res) {
   res.render('pages/kart');
 });
 
+function validateEmail(email) {
+  const re = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  return re.test(email);
+}
+
 app.post('/kontaktskjema', function (req, res) {
   var fnavn = req.body.fnavn;
   var enavn = req.body.enavn;
@@ -77,25 +83,26 @@ app.post('/kontaktskjema', function (req, res) {
       sjekk: false,
       message: "Etternavn mangler eller er tom"
     })
-  } else if (typeof epost === 'undefined' || epost === null || epost === '') {
+  } else if (!validateEmail(epost)) {
     res.render('pages/tilbakemelding', {
       sjekk: false,
-      message: "Epost mangler eller er tom"
+      message: "Epost er feil formatert"
     })
   } else if (typeof tlf === 'undefined' || tlf === null || tlf === '') {
     res.render('pages/tilbakemelding', {
       sjekk: false,
-      message: "Telefonnummer mangler eller er tom"
+      message: "Telefonnummer mangler"
     })
   } else if (typeof tekst === 'undefined' || tekst === null || tekst === '') {
     res.render('pages/tilbakemelding', {
       sjekk: false,
-      message: "Forespørsel mangler eller er tom"
+      message: "Forespørsel er tom"
     })
   } else {
     const mailOptions = {
       from: "Kontaktskjema <namsosadv@gmail.com>",
       to: "ijb@namsosadvokatene.no",
+      replyTo: epost,
       subject: "Kontaktskjema Namsosadvokatene",
       text: html_string,
       html: "<b>" + html_string + "</b>",
