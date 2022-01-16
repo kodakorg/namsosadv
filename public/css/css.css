@@ -23,27 +23,18 @@ p {
   color: white;
   width: 100%;
   max-width: 600px;
-}
-
-span { 
-  font-size: 1em;
-}
-
-span b {
-  font-size: 160%;
-  font-weight: normal;
-}
-
-.logo-top {
   text-align: left;
-  padding-left: 1em;
+  padding: 1em 1em 1em 0.5em;
   line-height: normal;
 }
 
-.logo-bottom {
-  text-align: left;
-  padding-left: 4em;
-  padding-bottom: 1em;
+span { 
+  font-size: 1.5em;
+}
+
+span b {
+  font-size: 2em;
+  font-weight: normal;
 }
 
 .map-responsive{
@@ -61,22 +52,13 @@ span b {
   position:absolute;
 }
 
-@media screen and (min-width: 601px) {
-  .logo-top {
-    font-size: 2em;
-  }
-
-  .logo-bottom {
+@media screen and (max-width: 420px) {
+  span { 
     font-size: 1em;
   }
-}
-
-@media screen and (max-width: 600px) {
-  .logo-top {
-    font-size: 6vw;
-  }
-
-  .logo-bottom {
-    font-size: 3vw;
+  
+  span b {
+    font-size: 1.5em;
+    font-weight: normal;
   }
 }
