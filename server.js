@@ -158,7 +158,7 @@ app.post('/redesign1/kontakt', function (req, res) {
   var epost = req.body.epost;
   var tlf = req.body.tlf;
   var tekst = req.body.tekst;
-  var epostkopi = req.body.epostkopi;
+  var epostkopi = req.body['epostkopi'];
   var html_string = "";
 
   html_string += "Fornavn: " + fnavn + "<br>";
@@ -203,7 +203,7 @@ app.post('/redesign1/kontakt', function (req, res) {
       html: "<b>" + html_string + "</b>",
     }
 
-    if (epostkopi == "true") {
+    if (epostkopi) {
       mailOptions.cc = epost;
     }
 
