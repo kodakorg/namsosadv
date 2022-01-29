@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <div class="bg-white p-3" id="tilbakemelding">
+    <% if (sjekk) { %>
+      <p>Takk for forespørselen!</p>
+      <p>Skjemaet er sendt til Namsos Advokatene</p>
+      <% } else { %>
+        <p>Feil ved innsending av skjema:</p>
+        <p>
+          <%= message %>
+        </p>
+        <% } %>
+  </div>
+  <br>
+
+  <footer>
+    <% include ../partials/foother %>
+  </footer>
+
+</body>
+
+</html>

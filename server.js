@@ -26,6 +26,11 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+function validateEmail(email) {
+  const re = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  return re.test(email);
+}
+
 app.get('/', function (req, res) {
   res.render('pages/hovedside');
 });
@@ -53,11 +58,6 @@ app.get('/kontaktskjema', function (req, res) {
 app.get('/kart', function (req, res) {
   res.render('pages/kart');
 });
-
-function validateEmail(email) {
-  const re = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-  return re.test(email);
-}
 
 app.post('/kontaktskjema', function (req, res) {
   var fnavn = req.body.fnavn;
@@ -108,17 +108,121 @@ app.post('/kontaktskjema', function (req, res) {
       html: "<b>" + html_string + "</b>",
     }
 
-    transporter.sendMail(mailOptions, function (err, result) {
-      if (err) {
-        res.render('pages/tilbakemelding', {
-          sjekk: false,
-          message: err
-        })
-      } else {
-        transporter.close();
-        res.render('pages/tilbakemelding', { sjekk: true })
-      }
+    /*     transporter.sendMail(mailOptions, function (err, result) {
+          if (err) {
+            res.render('pages/tilbakemelding', {
+              sjekk: false,
+              message: err
+            })
+          } else {
+            transporter.close();
+            res.render('pages/tilbakemelding', { sjekk: true })
+          }
+        }) */
+  }
+});
+
+////////////////
+// REDESIGN 1 //
+////////////////
+app.get('/redesign1', function (req, res) {
+  res.render('redesign1/pages/hovedside');
+});
+
+app.get('/redesign1/kompetanse', function (req, res) {
+  res.render('redesign1/pages/kompetanse');
+});
+
+app.get('/redesign1/omoss', function (req, res) {
+  res.render('redesign1/pages/omoss');
+});
+
+app.get('/redesign1/priser', function (req, res) {
+  res.render('redesign1/pages/priser');
+});
+
+app.get('/redesign1/forsikring', function (req, res) {
+  res.render('redesign1/pages/forsikring');
+});
+
+app.get('/redesign1/kontakt', function (req, res) {
+  res.render('redesign1/pages/kontakt', {
+    sjekk: false,
+    message: null
+  })
+});
+
+app.post('/redesign1/kontakt', function (req, res) {
+  var fnavn = req.body.fnavn;
+  var enavn = req.body.enavn;
+  var epost = req.body.epost;
+  var tlf = req.body.tlf;
+  var tekst = req.body.tekst;
+  var epostkopi = req.body.epostkopi;
+  var html_string = "";
+
+  html_string += "Fornavn: " + fnavn + "<br>";
+  html_string += "Etternavn: " + enavn + "<br><br>";
+  html_string += "Epost: " + epost + "<br>";
+  html_string += "Telefonnummer: " + tlf + "<br><br>";
+  html_string += "Forespørsel: " + tekst;
+
+  if (typeof fnavn === 'undefined' || fnavn === null || fnavn === '') {
+    res.render('redesign1/pages/kontakt', {
+      sjekk: false,
+      message: "Fornavn mangler eller er tom"
     })
+  } else if (typeof enavn === 'undefined' || enavn === null || enavn === '') {
+    res.render('redesign1/pages/kontakt', {
+      sjekk: false,
+      message: "Etternavn mangler eller er tom"
+    })
+  } else if (!validateEmail(epost)) {
+    res.render('redesign1/pages/kontakt', {
+      sjekk: false,
+      message: "Epost er feil formatert"
+    })
+  } else if (typeof tlf === 'undefined' || tlf === null || tlf === '') {
+    res.render('redesign1/pages/kontakt', {
+      sjekk: false,
+      message: "Telefonnummer mangler"
+    })
+  } else if (typeof tekst === 'undefined' || tekst === null || tekst === '') {
+    res.render('redesign1/pages/kontakt', {
+      sjekk: false,
+      message: "Forespørsel er tom"
+    })
+  } else {
+    console.log("epostkopi: " + epostkopi);
+    const mailOptions = {
+      from: "Kontaktskjema <namsosadv@gmail.com>",
+      to: "ole.hustad@gmail.com",
+      replyTo: epost,
+      subject: "Kontaktskjema Namsosadvokatene",
+      text: html_string,
+      html: "<b>" + html_string + "</b>",
+    }
+
+    if (epostkopi == "true") {
+      mailOptions.cc = epost;
+    }
+
+    res.render('redesign1/pages/kontakt', {
+      sjekk: true,
+      message: JSON.stringify(mailOptions)
+    })
+
+    /*     transporter.sendMail(mailOptions, function (err, result) {
+          if (err) {
+            res.render('pages/tilbakemelding', {
+              sjekk: false,
+              message: err
+            })
+          } else {
+            transporter.close();
+            res.render('pages/tilbakemelding', { sjekk: true })
+          }
+        }) */
   }
 });
 

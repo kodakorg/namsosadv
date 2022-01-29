@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <div class="content border-start border-end">
+    <header>
+      <% include ../partials/header %>
+    </header>
+
+    <div>
+      <div class="row m-4">
+        <div class="col-md-6">
+          <h5>Telefon: 74 22 66 77</h5>
+          <p>Ivar Hustad<br><a href="mailto:ih@namsosadvokatene.no">ih@namsosadvokatene.no</a></p>
+          <p>Edyta Maria Majka<br><a href="mailto:emm@namsosadvokatene.no">emm@namsosadvokatene.no</a></p>
+          <p>Brita Reinert<br><a href="mailto:br@namsosadvokatene.no">br@namsosadvokatene.no</a></p>
+          <h5>Postadresse</h5>
+          <p>Advokat Ivar Hustad AS<br>Postboks 500<br>7801 Namsos</p>
+          <h5>Besøksadresse</h5>
+          <p>Carl Guldbransons gate 7<br>7801 Namsos</p>
+          <a
+            href="https://www.google.com/maps/place/Carl+Gulbransons+gate+7,+7800+Namsos/@64.4651044,11.4942079,17z/data=!3m1!4b1!4m5!3m4!1s0x4672e62c5ba45377:0x32b3091eece84fd9!8m2!3d64.4651044!4d11.4963967">
+            <img class="img-fluid border border-2 border-dark rounded" width="300" src="images/map2.jpg" alt="map">
+          </a>
+          <br><br>
+        </div>
+        <div class="col-md-5 border border-2 border-dark rounded shadow">
+          <h4>Kontaktskjema</h4>
+          <form action="/redesign1/kontakt" id="kontaktskjema" method="post">
+            <div>
+              <label for="fnavn" class="form-label fw-bold">Fornavn:</label>
+              <input type="text" class="form-control" name="fnavn" required>
+            </div>
+            <br>
+            <div>
+              <label for="enavn" class="form-label fw-bold">Etternavn:</label>
+              <input type="text" class="form-control" name="enavn">
+            </div>
+            <br>
+            <div>
+              <label for="epost" class="form-label fw-bold">E-post:</label>
+              <input type="text" id="epost" class="form-control" name="epost">
+            </div>
+            <br>
+            <div>
+              <label for="tlf" class="form-label fw-bold">Telefonnummer:</label>
+              <input type="number" class="form-control" name="tlf">
+            </div>
+            <br>
+            <div>
+              <label for="tekst" class="form-label fw-bold">Forespørsel:</label>
+              <textarea class="form-control" id="tekst" name="tekst" rows="3"></textarea>
+            </div>
+            <br>
+            <input id="epostkopi" name="epostkopi" class="form-check-input" type="checkbox" value="true">
+            <label for="epostkopi" class="form-label fw-bold">Send kopi til min e-post</label>
+            <br><br>
+            <div class="kontaktskjema-button start-50">
+              <button class="btn" id="myButton">Send</button>
+            </div>
+          </form>
+          <div class="bg-white p-3" id="tilbakemelding">
+            <% if (sjekk) { %>
+              <p>Takk for bestillingen!</p>
+              <p>Skjemaet er sendt til Namsosadvokatene</p>
+              <p>Message: <%= message %>
+              </p>
+              <% } else { %>
+                <p>
+                  <%= message %>
+                </p>
+                <% } %>
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("kontakt").classList.add("active");
+    </script>
+
+    <footer>
+      <% include ../partials/foother %>
+    </footer>
+
+  </div>
+</body>
+
+
+</html>

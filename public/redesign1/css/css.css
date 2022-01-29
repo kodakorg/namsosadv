@@ -1,0 +1,239 @@
+body {
+  background: white;
+  font: sans-serif;
+  overflow: visible;
+}
+
+.content {
+  max-width: 1303px;
+  margin: auto;
+}
+
+.content-omoss {
+  max-width: 800px;
+  margin: auto;
+}
+
+.content-forsikring {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.image-omoss {
+  margin-left: 3rem;
+  margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .image-omoss { 
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+  }
+}
+
+.orange {
+  background: #aa530b;
+  border-color: #aa530b;
+  color: white;
+}
+
+.grey {
+  background: #dacece;
+}
+
+.maksw {
+  max-width: 600px;
+}
+
+p {
+  max-width: 600px;
+}
+
+.error {
+  color: red;
+}
+
+.header {
+  font-size: 0.8em;
+  background: #152f4f;
+  color: white;
+}
+
+.header a {
+  font-size: 1.5em;
+  color: white;
+}
+
+span { 
+  font-size: 1.5em;
+}
+
+span b {
+  font-size: 2em;
+  font-weight: normal;
+}
+
+.map-responsive{
+  overflow:hidden;
+  padding-bottom:56.25%;
+  position:relative;
+  height:0;
+}
+
+.map-responsive iframe{
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+
+@media screen and (max-width: 420px) {
+  span { 
+    font-size: 1em;
+  }
+  
+  span b {
+    font-size: 1.5em;
+    font-weight: normal;
+  }
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 1303px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+}
+
+.image-container .btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #D2FEFF;
+  color: black;
+  font-size: 24px;
+  padding: 24px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.image-container .btn1 {
+  top: 85%;
+  left: 60%;
+}
+
+.image-container .btn2 {
+  top: 85%;
+  left: 80%;
+}
+
+.kontaktskjema-button .btn {
+  font-size: 24px;
+  padding: 24px;
+  width: 8em;
+}
+
+.btn {
+  background-color: #6cfdff;
+  color: black;
+  font-size: 12px;
+  padding: 12px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+}
+
+@media screen and (max-width: 915px) {
+  .image-container .btn {
+    font-size: 18px;
+    padding: 18px;
+  }
+
+  .image-container .btn1 {
+    top: 80%;
+    left: 60%;
+  }
+  
+  .image-container .btn2 {
+    top: 80%;
+    left: 80%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .image-container .btn {
+    font-size: 14px;
+    padding: 14px;
+  }
+
+  .image-container .btn1 {
+    top: 70%;
+    left: 60%;
+  }
+  
+  .image-container .btn2 {
+    top: 70%;
+    left: 80%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .image-container .btn {
+    font-size: 10px;
+    padding: 10px;
+  }
+
+  .image-container .btn1 {
+    top: 80%;
+    left: 60%;
+  }
+  
+  .image-container .btn2 {
+    top: 80%;
+    left: 85%;
+  }
+}
+
+.image-container .btn:hover {
+  background-color: black;
+  color: white;
+}
+
+
+
+.footer {
+  background: #152f4f;
+  color: white;
+}
+.footer .links a {
+  color: white;
+  transition: color 0.2s;
+}
+.footer .links a:hover {
+  text-decoration: none;
+  color: #4180cb;
+}
+
+.header a:hover {
+  text-decoration: none;
+  color: #4180cb;
+}
+
+.header .active{
+  color: #4180cb
+}
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
