@@ -60,6 +60,15 @@ p {
 }
 
 .header a {
+  font-size: 2.5em;
+  color: white;
+}
+
+.liten {
+  font-size: 0.5em;
+}
+
+.header-nav a {
   font-size: 1.5em;
   color: white;
 }
@@ -134,13 +143,13 @@ span b {
 }
 
 .kontaktskjema-button .btn {
-  font-size: 24px;
-  padding: 24px;
+  font-size: 18px;
+  padding: 18px;
   width: 8em;
 }
 
 .btn {
-  background-color: #6cfdff;
+  background-color: #D2FEFF;
   color: black;
   font-size: 12px;
   padding: 12px;
@@ -227,11 +236,11 @@ span b {
 
 .header a:hover {
   text-decoration: none;
-  color: #4180cb;
+  color: #ce7c39;
 }
 
 .header .active{
-  color: #4180cb
+  color: #ce7c39
 }
 
 .custom-toggler .navbar-toggler-icon {

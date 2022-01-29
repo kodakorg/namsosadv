@@ -168,27 +168,27 @@ app.post('/redesign1/kontakt', function (req, res) {
   html_string += "Forespørsel: " + tekst;
 
   if (typeof fnavn === 'undefined' || fnavn === null || fnavn === '') {
-    res.render('redesign1/pages/kontakt', {
+    res.render('redesign1/pages/tilbakemelding', {
       sjekk: false,
       message: "Fornavn mangler eller er tom"
     })
   } else if (typeof enavn === 'undefined' || enavn === null || enavn === '') {
-    res.render('redesign1/pages/kontakt', {
+    res.render('redesign1/pages/tilbakemelding', {
       sjekk: false,
       message: "Etternavn mangler eller er tom"
     })
   } else if (!validateEmail(epost)) {
-    res.render('redesign1/pages/kontakt', {
+    res.render('redesign1/pages/tilbakemelding', {
       sjekk: false,
       message: "Epost er feil formatert"
     })
   } else if (typeof tlf === 'undefined' || tlf === null || tlf === '') {
-    res.render('redesign1/pages/kontakt', {
+    res.render('redesign1/pages/tilbakemelding', {
       sjekk: false,
       message: "Telefonnummer mangler"
     })
   } else if (typeof tekst === 'undefined' || tekst === null || tekst === '') {
-    res.render('redesign1/pages/kontakt', {
+    res.render('redesign1/pages/tilbakemelding', {
       sjekk: false,
       message: "Forespørsel er tom"
     })
@@ -207,22 +207,17 @@ app.post('/redesign1/kontakt', function (req, res) {
       mailOptions.cc = epost;
     }
 
-    res.render('redesign1/pages/kontakt', {
-      sjekk: true,
-      message: JSON.stringify(mailOptions)
+    transporter.sendMail(mailOptions, function (err, result) {
+      if (err) {
+        res.render('redesign1/pages/tilbakemelding', {
+          sjekk: false,
+          message: err
+        })
+      } else {
+        transporter.close();
+        res.render('redesign1/pages/tilbakemelding', { sjekk: true })
+      }
     })
-
-    /*     transporter.sendMail(mailOptions, function (err, result) {
-          if (err) {
-            res.render('pages/tilbakemelding', {
-              sjekk: false,
-              message: err
-            })
-          } else {
-            transporter.close();
-            res.render('pages/tilbakemelding', { sjekk: true })
-          }
-        }) */
   }
 });
 
