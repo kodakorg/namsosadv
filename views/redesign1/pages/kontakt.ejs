@@ -20,7 +20,7 @@
           <p>Edyta Maria Majka: <a href="mailto:emm@namsosadvokatene.no">emm@namsosadvokatene.no</a></p>
           <p>Brita Reinert: <a href="mailto:br@namsosadvokatene.no">br@namsosadvokatene.no</a></p>
           <h5>Postadresse</h5>
-          <p>Advokat Ivar Hustad AS<br>Postboks 500<br>7801 Namsos</p>
+          <p>Advokat Ivar Hustad AS<br>Postboks 100<br>7801 Namsos</p>
           <h5>Besøksadresse</h5>
           <p>Carl Guldbransons gate 7<br>7801 Namsos</p>
           <a
@@ -36,8 +36,8 @@
           <div class="p-2">
             <form action="/redesign1/kontakt" id="kontaktskjema" method="post">
               <div class="pb-2">
-                <label for="fnavn" class="form-label fw-bold">Navn:</label>
-                <input placeholder="Ditt navn" type="text" class="form-control" name="fnavn" required>
+                <label for="navn" class="form-label fw-bold">Navn:</label>
+                <input placeholder="Ditt navn" type="text" class="form-control" name="navn" required>
               </div>
               <div class="pb-2">
                 <label for="bosted" class="form-label fw-bold">Bosted:</label>
@@ -78,6 +78,37 @@
     <footer>
       <% include ../partials/foother %>
     </footer>
+
+    <script>
+      $("#kontaktskjema").validate({
+        rules: {
+          navn: "required",
+          bosted: "required",
+          tlf: {
+            required: true,
+            minlength: 8,
+          },
+          epost: {
+            required: true,
+            email: true
+          },
+          tekst: "required"
+        },
+        messages: {
+          navn: "Navn må fylles ut",
+          bosted: "Bosted må fylles ut",
+          tlf: {
+            required: "Telefonnummer må fylles ut",
+            minlengt: "Telefonnummer må være minimum 8 tall",
+          },
+          epost: {
+            required: "Epost må fylles ut",
+            email: "En gyldig e-post adresse må fylles ut f.eks. navn@domene.no"
+          },
+          tekst: "Formål må fylles ut"
+        }
+      });
+    </script>
 
   </div>
 </body>

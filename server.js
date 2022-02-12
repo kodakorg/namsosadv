@@ -108,17 +108,17 @@ app.post('/kontaktskjema', function (req, res) {
       html: "<b>" + html_string + "</b>",
     }
 
-    /*     transporter.sendMail(mailOptions, function (err, result) {
-          if (err) {
-            res.render('pages/tilbakemelding', {
-              sjekk: false,
-              message: err
-            })
-          } else {
-            transporter.close();
-            res.render('pages/tilbakemelding', { sjekk: true })
-          }
-        }) */
+    transporter.sendMail(mailOptions, function (err, result) {
+      if (err) {
+        res.render('pages/tilbakemelding', {
+          sjekk: false,
+          message: err
+        })
+      } else {
+        transporter.close();
+        res.render('pages/tilbakemelding', { sjekk: true })
+      }
+    })
   }
 });
 
@@ -153,26 +153,26 @@ app.get('/redesign1/kontakt', function (req, res) {
 });
 
 app.post('/redesign1/kontakt', function (req, res) {
-  var fnavn = req.body.fnavn;
-  var enavn = req.body.enavn;
+  var navn = req.body.navn;
+  var bosted = req.body.bosted;
   var epost = req.body.epost;
   var tlf = req.body.tlf;
   var tekst = req.body.tekst;
   var epostkopi = req.body['epostkopi'];
   var html_string = "";
 
-  html_string += "Fornavn: " + fnavn + "<br>";
-  html_string += "Etternavn: " + enavn + "<br><br>";
+  html_string += "Navn: " + navn + "<br><br>";
+  html_string += "Bosted: " + bosted + "<br><br>";
   html_string += "Epost: " + epost + "<br>";
   html_string += "Telefonnummer: " + tlf + "<br><br>";
   html_string += "Forespørsel: " + tekst;
 
-  if (typeof fnavn === 'undefined' || fnavn === null || fnavn === '') {
+  if (typeof navn === 'undefined' || navn === null || navn === '') {
     res.render('redesign1/pages/tilbakemelding', {
       sjekk: false,
       message: "Fornavn mangler eller er tom"
     })
-  } else if (typeof enavn === 'undefined' || enavn === null || enavn === '') {
+  } else if (typeof bosted === 'undefined' || bosted === null || bosted === '') {
     res.render('redesign1/pages/tilbakemelding', {
       sjekk: false,
       message: "Etternavn mangler eller er tom"

@@ -17,7 +17,7 @@
       <div class="ps-3 col-sm-4 links">
         <h3>Postadresse</h3>
         Advokat Ivar Hustad AS<br>
-        Postboks 500<br>
+        Postboks 100<br>
         7801 Namsos
       </div>
     </div>
@@ -28,34 +28,3 @@
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/jquery.validate.min.js"></script>
 <script src="/js/additional-methods.min.js"></script>
-
-<script>
-  $("#kontaktskjema").validate({
-    rules: {
-      fnavn: "required",
-      enavn: "required",
-      tlf: {
-        required: true,
-        minlength: 8,
-      },
-      epost: {
-        required: true,
-        email: true
-      },
-      tekst: "required"
-    },
-    messages: {
-      fnavn: "Fornavn må fylles ut",
-      enavn: "Etternavn må fylles ut",
-      tlf: {
-        required: "Telefonnummer må fylles ut",
-        minlengt: "Telefonnummer må være minimum 8 tall",
-      },
-      epost: {
-        required: "Epost må fylles ut",
-        email: "En gyldig e-post adresse må fylles ut f.eks. navn@domene.no"
-      },
-      tekst: "Formål må fylles ut"
-    }
-  });
-</script>

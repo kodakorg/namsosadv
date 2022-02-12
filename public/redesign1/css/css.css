@@ -1,6 +1,6 @@
 body {
   background: white;
-  font: sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   overflow: visible;
 }
 
@@ -28,7 +28,7 @@ p {
 }
 
 .header {
-  background: #152f4f;
+  background: #00199A;
   color: white;
 }
 
@@ -37,11 +37,11 @@ p {
 }
 
 .header a:hover {
-  color: #ce7c39;
+  color: #3a93ff;
 }
 
 .header .active{
-  color: #ce7c39
+  color: white;
 }
 
 .image-container {
@@ -71,6 +71,14 @@ p {
   padding: 1.2vw;
 }
 
+@media only screen and (max-width: 600px) {
+  .image-container .btn {
+    position: absolute;
+    font-size: 1.2vw;
+    padding: 1.2vw;
+  }
+}
+
 .image-container .btn1 {
   bottom: 10%;
   right: 15%;
@@ -82,7 +90,7 @@ p {
 }
 
 .footer {
-  background: #152f4f;
+  background: #000E56;
   color: white;
 }
 .footer .links a {
@@ -96,4 +104,8 @@ p {
  
 .custom-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.logo {
+  font-family: 'Merriweather Sans', sans-serif;
 }
