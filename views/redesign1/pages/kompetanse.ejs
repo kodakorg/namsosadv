@@ -6,236 +6,216 @@
 </head>
 
 <body>
-  <div class="content">
 
-    <header>
-      <% include ../partials/header %>
-    </header>
+  <header>
+    <% include ../partials/header %>
+  </header>
 
-    <br><br>
-    <div class="row justify-content-md-center fw-bold">
-      <div class="col-md-3 p-2"></div>
-      <div class="col-md-2 p-2"></div>
-    </div>
-    <div class="row justify-content-md-center fw-bold">
-      <div class="col-md-3 p-2">
-        <div class="orange text-center rounded-top p-3 shadow">
-          <h5>Eiendomsrett</h5>
-        </div>
-        <div class="shadow rounded-bottom">
-          <div class="bg-white text-center p-3" data-bs-toggle="collapse" href="#prosedyre" role="button"
-            aria-expanded="false" aria-controls="prosedyre">
-            <img src="images/expand_more_black_36dp.svg" alt="expand_more" />
-          </div>
-          <div class="collapse" id="prosedyre">
-            <div class="bg-white ps-4 pb-3">
-              Grensespørsmål<br>
-              Festeforhold<br>
-              Odelsrett<br>
-              Kjøp og salg<br>
-              Forsikringsdekning<br>
-              Bruksrettigheter<br>
-              Husleie
-            </div>
-          </div>
-        </div>
+  <div class="row m-0 pt-3 ps-5 pe-5 justify-content-center">
+    <div class="col-lg-3 pb-3" style="max-width: 400px;">
+      <div class="color-secondary text-center rounded-top pt-3 pb-3 shadow">
+        <h5>Eiendomsrett</h5>
       </div>
-      <div class="col-md-3 p-2">
-        <div class="orange text-center rounded-top p-3 shadow">
-          <h5>Familierett</h5>
+      <div class="shadow rounded-bottom">
+        <div class="collapse p-3" id="prosedyre">
+          Grensespørsmål<br>
+          Festeforhold<br>
+          Odelsrett<br>
+          Kjøp og salg<br>
+          Forsikringsdekning<br>
+          Bruksrettigheter<br>
+          Husleie
         </div>
-        <div class="shadow rounded-bottom">
-          <div class="bg-white text-center p-3" data-bs-toggle="collapse" href="#familierett" role="button"
-            aria-expanded="false" aria-controls="familierett">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="darkblue"
-              class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
-              <path
-                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z" />
-            </svg>
-          </div>
-          <div class="collapse" id="familierett">
-            <div class="bg-white ps-4 pb-3">
-              Ektepakt og samboerkontrakter<br>
-              Fremtidsfullmakt<br>
-              Samlivsbrudd<br>
-              Barnefordeling<br>
-              Skole og utdanning
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 p-2">
-        <div class="orange text-center rounded-top p-3 shadow">
-          <h5>Arbeidsrett</h5>
-        </div>
-        <div class="shadow rounded-bottom">
-          <div class="bg-white text-center p-3" data-bs-toggle="collapse" href="#arbeidsrett" role="button"
-            aria-expanded="false" aria-controls="arbeidsrett">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="darkblue"
-              class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
-              <path
-                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z" />
-            </svg>
-          </div>
-          <div class="collapse" id="arbeidsrett">
-            <div class="bg-white ps-4 pb-3">
-              Arbeidstvister<br>
-              Oppsigelse og avskjed<br>
-              Nedbemanning<br>
-              Arbeidsmiljøloven<br>
-              Erstatning og oppreisning
-            </div>
-          </div>
+        <div class="bg-white border-top text-center" data-bs-toggle="collapse" href="#prosedyre" role="button"
+          id="prosedyre_button" aria-expanded="false" aria-controls="prosedyre"
+          onclick="toggleMoreLess(document.getElementById('prosedyre_more'),document.getElementById('prosedyre_less'));">
+          <img id="prosedyre_more" style="display: inline;" src="images/expand_more_black_36dp.svg" alt="expand_more" />
+          <img id="prosedyre_less" style="display: none;" src="images/expand_less_black_36dp.svg" alt="expand_less" />
         </div>
       </div>
     </div>
-    <div class="row justify-content-md-center fw-bold">
-      <div class="col-md-3 p-2">
-        <div class="orange text-center rounded-top p-3 shadow">
-          <h5>Arverett</h5>
-        </div>
-        <div class="shadow rounded-bottom">
-          <div class="bg-white text-center p-3" data-bs-toggle="collapse" href="#arverett" role="button"
-            aria-expanded="false" aria-controls="arverett">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="darkblue"
-              class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
-              <path
-                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z" />
-            </svg>
-          </div>
-          <div class="collapse" id="arverett">
-            <div class="bg-white ps-4 pb-3">
-              Testament<br>
-              Fremtidsfullmakt<br>
-              Arveoppgjør<br>
-              Bobehandling
-            </div>
-          </div>
-        </div>
+    <div class="col-lg-3 pb-3" style="max-width: 400px;">
+      <div class="color-secondary text-center rounded-top pt-3 pb-3 shadow">
+        <h5>Familierett</h5>
       </div>
-      <div class="col-md-3 p-2">
-        <div class="orange text-center rounded-top p-3 shadow">
-          <h5>Selskapsrett</h5>
+      <div class="shadow rounded-bottom">
+        <div class="collapse p-3" id="familierett">
+          Ektepakt og samboerkontrakter<br>
+          Fremtidsfullmakt<br>
+          Samlivsbrudd<br>
+          Barnefordeling<br>
+          Skole og utdanning
         </div>
-        <div class="shadow rounded-bottom">
-          <div class="bg-white text-center p-3" data-bs-toggle="collapse" href="#selskapsrett" role="button"
-            aria-expanded="false" aria-controls="selskapsrett">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="darkblue"
-              class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
-              <path
-                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z" />
-            </svg>
-          </div>
-          <div class="collapse" id="selskapsrett">
-            <div class="bg-white ps-4 pb-3">
-              Styrearbeide<br>
-              Omstrukturering<br>
-              Kjøp og salg av næring<br>
-              Selskapsetablering<br>
-              Selskapsrettigheter
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 p-2">
-        <div class="orange text-center rounded-top p-3 shadow">
-          <h5>Bygg og entreprise</h5>
-        </div>
-        <div class="shadow rounded-bottom">
-          <div class="bg-white text-center p-3" data-bs-toggle="collapse" href="#forretningsjus" role="button"
-            aria-expanded="false" aria-controls="forretningsjus">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="darkblue"
-              class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
-              <path
-                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z" />
-            </svg>
-          </div>
-          <div class="collapse" id="forretningsjus">
-            <div class="bg-white ps-4 pb-3">
-              Anbudsregler<br>
-              KOFA<br>
-              Oppgjørstvister<br>
-              Standardvilkår
-            </div>
-          </div>
+        <div class="bg-white border-top text-center" data-bs-toggle="collapse" href="#familierett" role="button"
+          aria-expanded="false" aria-controls="familierett"
+          onclick="toggleMoreLess(document.getElementById('familierett_more'),document.getElementById('familierett_less'));">
+          <img id="familierett_more" style="display: inline;" src="images/expand_more_black_36dp.svg"
+            alt="expand_more" />
+          <img id="familierett_less" style="display: none;" src="images/expand_less_black_36dp.svg" alt="expand_less" />
         </div>
       </div>
     </div>
-    <div class="row justify-content-md-center fw-bold pb-4">
-      <div class="col-md-3 p-2">
-        <div class="orange text-center rounded-top p-3 shadow">
-          <h5>Avtalerett</h5>
-        </div>
-        <div class="shadow rounded-bottom">
-          <div class="bg-white text-center p-3" data-bs-toggle="collapse" href="#avtalerett" role="button"
-            aria-expanded="false" aria-controls="avtalerett">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="darkblue"
-              class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
-              <path
-                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z" />
-            </svg>
-          </div>
-          <div class="collapse" id="avtalerett">
-            <div class="bg-white ps-4 pb-3">
-              Kontraktsinngåelse<br>
-              Kontraktstolkning
-            </div>
-          </div>
-        </div>
+    <div class="col-lg-3 pb-3" style="max-width: 400px;">
+      <div class="color-secondary text-center rounded-top pt-3 pb-3 shadow">
+        <h5>Arbeidsrett</h5>
       </div>
-      <div class="col-md-3 p-2">
-        <div class="orange text-center rounded-top p-3 shadow">
-          <h5>Strafferett</h5>
+      <div class="shadow rounded-bottom">
+        <div class="collapse p-3" id="arbeidsrett">
+          Arbeidstvister<br>
+          Oppsigelse og avskjed<br>
+          Nedbemanning<br>
+          Arbeidsmiljøloven<br>
+          Erstatning og oppreisning
         </div>
-        <div class="shadow rounded-bottom">
-          <div class="bg-white text-center p-3" data-bs-toggle="collapse" href="#strafferett" role="button"
-            aria-expanded="false" aria-controls="strafferett">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="darkblue"
-              class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
-              <path
-                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z" />
-            </svg>
-          </div>
-          <div class="collapse" id="strafferett">
-            <div class="bg-white ps-4 pb-3">
-              Forsvarer<br>
-              Bistandsadvokat
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 p-2">
-        <div class="orange text-center rounded-top p-3 shadow">
-          <h5>Bil og båt</h5>
-        </div>
-        <div class="shadow rounded-bottom">
-          <div class="bg-white text-center p-3" data-bs-toggle="collapse" href="#bilogbaat" role="button"
-            aria-expanded="false" aria-controls="bilogbaat">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="darkblue"
-              class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
-              <path
-                d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0z" />
-            </svg>
-          </div>
-          <div class="collapse" id="bilogbaat">
-            <div class="bg-white ps-4 pb-3">
-              Selgeransvar<br>
-              Verkstedsansvar
-            </div>
-          </div>
+        <div class="bg-white border-top text-center" data-bs-toggle="collapse" href="#arbeidsrett" role="button"
+          aria-expanded="false" aria-controls="arbeidsrett"
+          onclick="toggleMoreLess(document.getElementById('arbeidsrett_more'),document.getElementById('arbeidsrett_less'));">
+          <img id="arbeidsrett_more" style="display: inline;" src="images/expand_more_black_36dp.svg"
+            alt="expand_more" />
+          <img id="arbeidsrett_less" style="display: none;" src="images/expand_less_black_36dp.svg" alt="expand_less" />
         </div>
       </div>
     </div>
-    <br><br>
-
-    <script>
-      document.getElementById("kompetanse").classList.add("active");
-    </script>
-
-    <footer>
-      <% include ../partials/foother %>
-    </footer>
   </div>
+  <div class="row m-0 pt-3 ps-5 pe-5 justify-content-center">
+    <div class="col-lg-3 pb-3" style="max-width: 400px;">
+      <div class="color-secondary text-center rounded-top pt-3 pb-3 shadow">
+        <h5>Arverett</h5>
+      </div>
+      <div class="shadow rounded-bottom">
+        <div class="collapse p-3" id="arverett">
+          Testament<br>
+          Fremtidsfullmakt<br>
+          Arveoppgjør<br>
+          Bobehandling
+        </div>
+        <div class="bg-white border-top text-center" data-bs-toggle="collapse" href="#arverett" role="button"
+          aria-expanded="false" aria-controls="arverett"
+          onclick="toggleMoreLess(document.getElementById('arverett_more'),document.getElementById('arverett_less'));">
+          <img id="arverett_more" style="display: inline;" src="images/expand_more_black_36dp.svg" alt="expand_more" />
+          <img id="arverett_less" style="display: none;" src="images/expand_less_black_36dp.svg" alt="expand_less" />
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 pb-3" style="max-width: 400px;">
+      <div class="color-secondary text-center rounded-top pt-3 pb-3 shadow">
+        <h5>Selskapsrett</h5>
+      </div>
+      <div class="shadow rounded-bottom">
+        <div class="collapse p-3" id="selskapsrett">
+          Styrearbeide<br>
+          Omstrukturering<br>
+          Kjøp og salg av næring<br>
+          Selskapsetablering<br>
+          Selskapsrettigheter
+        </div>
+        <div class="bg-white border-top text-center" data-bs-toggle="collapse" href="#selskapsrett" role="button"
+          aria-expanded="false" aria-controls="selskapsrett"
+          onclick="toggleMoreLess(document.getElementById('selskapsrett_more'),document.getElementById('selskapsrett_less'));">
+          <img id="selskapsrett_more" style="display: inline;" src="images/expand_more_black_36dp.svg"
+            alt="expand_more" />
+          <img id="selskapsrett_less" style="display: none;" src="images/expand_less_black_36dp.svg"
+            alt="expand_less" />
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 pb-3" style="max-width: 400px;">
+      <div class="color-secondary text-center rounded-top pt-3 pb-3 shadow">
+        <h5>Bygg og entreprise</h5>
+      </div>
+      <div class="shadow rounded-bottom">
+        <div class="collapse p-3" id="forretningsjus">
+          Anbudsregler<br>
+          KOFA<br>
+          Oppgjørstvister<br>
+          Standardvilkår
+        </div>
+        <div class="bg-white border-top text-center" data-bs-toggle="collapse" href="#forretningsjus" role="button"
+          aria-expanded="false" aria-controls="forretningsjus"
+          onclick="toggleMoreLess(document.getElementById('forretningsjus_more'),document.getElementById('forretningsjus_less'));">
+          <img id="forretningsjus_more" style="display: inline;" src="images/expand_more_black_36dp.svg"
+            alt="expand_more" />
+          <img id="forretningsjus_less" style="display: none;" src="images/expand_less_black_36dp.svg"
+            alt="expand_less" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row m-0 pt-3 ps-5 pe-5 justify-content-center">
+    <div class="col-lg-3 pb-3" style="max-width: 400px;">
+      <div class="color-secondary text-center rounded-top pt-3 pb-3 shadow">
+        <h5>Avtalerett</h5>
+      </div>
+      <div class="shadow rounded-bottom">
+        <div class="collapse p-3" id="avtalerett">
+          Kontraktsinngåelse<br>
+          Kontraktstolkning
+        </div>
+        <div class="bg-white border-top text-center" data-bs-toggle="collapse" href="#avtalerett" role="button"
+          aria-expanded="false" aria-controls="avtalerett"
+          onclick="toggleMoreLess(document.getElementById('avtalerett_more'),document.getElementById('avtalerett_more'));">
+          <img id="avtalerett_more" style="display: inline;" src="images/expand_more_black_36dp.svg"
+            alt="expand_more" />
+          <img id="avtalerett_less" style="display: none;" src="images/expand_less_black_36dp.svg" alt="expand_less" />
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 pb-3" style="max-width: 400px;">
+      <div class="color-secondary text-center rounded-top pt-3 pb-3 shadow">
+        <h5>Strafferett</h5>
+      </div>
+      <div class="shadow rounded-bottom">
+        <div class="collapse p-3" id="strafferett">
+          Forsvarer<br>
+          Bistandsadvokat
+        </div>
+        <div class="bg-white border-top text-center" data-bs-toggle="collapse" href="#strafferett" role="button"
+          aria-expanded="false" aria-controls="strafferett"
+          onclick="toggleMoreLess(document.getElementById('strafferett_more'),document.getElementById('strafferett_less'));">
+          <img id="strafferett_more" style="display: inline;" src="images/expand_more_black_36dp.svg"
+            alt="expand_more" />
+          <img id="strafferett_less" style="display: none;" src="images/expand_less_black_36dp.svg" alt="expand_less" />
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 pb-3" style="max-width: 400px;">
+      <div class="color-secondary text-center rounded-top pt-3 pb-3 shadow">
+        <h5>Bil og båt</h5>
+      </div>
+      <div class="shadow rounded-bottom">
+        <div class="collapse p-3" id="bilogbaat">
+          Selgeransvar<br>
+          Verkstedsansvar
+        </div>
+        <div class="bg-white border-top text-center" data-bs-toggle="collapse" href="#bilogbaat" role="button"
+          aria-expanded="false" aria-controls="bilogbaat"
+          onclick="toggleMoreLess(document.getElementById('bilogbaat_more'),document.getElementById('bilogbaat_less'));">
+          <img id="bilogbaat_more" style="display: inline;" src="images/expand_more_black_36dp.svg" alt="expand_more" />
+          <img id="bilogbaat_less" style="display: none;" src="images/expand_less_black_36dp.svg" alt="expand_less" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleMoreLess(elementMore, elementLess) {
+      if (elementMore.style.display == 'inline') {
+        elementMore.style.display = 'none';
+        elementLess.style.display = 'inline';
+      }
+      else {
+        elementMore.style.display = 'inline';
+        elementLess.style.display = 'none';
+      }
+    }
+
+    document.getElementById("kompetanse").classList.add("active");
+  </script>
+
+  <footer>
+    <% include ../partials/foother %>
+  </footer>
+
 </body>
 
 </html>

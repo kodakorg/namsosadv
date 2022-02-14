@@ -1,25 +1,10 @@
 body {
   background: white;
   font-family: 'Ubuntu', sans-serif;
-  overflow: visible;
 }
 
 p {
   max-width: 600px;
-}
-
-.orange {
-  background: #aa530b;
-  border-color: #aa530b;
-  color: white;
-}
-
-.error {
-  color: red;
-}
-
-.content {
-  margin: auto;
 }
 
 .content-forsikring {
@@ -32,60 +17,78 @@ p {
   color: white;
 }
 
-.header a{
+.header a {
   color: white;
 }
 
-.header a:hover {
+a:hover {
   color: #3a93ff;
 }
 
-.header .active{
-  color: white;
+.color-primary {
+  background-color: #C1F4FF;
+}
+
+.color-secondary {
+  background-color: #E1FAFF;
+}
+
+.btn {
+  background-color: #C1F4FF;
+  cursor: pointer;
+  bottom: 10%;
+}
+
+.btn:hover {
+  background-color: #E1FAFF;
 }
 
 .image-container {
   position: relative;
-  width: 100%;
-  height: auto;
-}
-
-.btn {
-  background-color: #D2FEFF;
-  color: black;
-  font-size: 1em;
-  padding: 1em;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-}
-
-.btn:hover {
-  background-color: black;
-  color: white;
 }
 
 .image-container .btn {
   position: absolute;
-  font-size: 1.2vw;
-  padding: 1.2vw;
-}
-
-@media only screen and (max-width: 600px) {
-  .image-container .btn {
-    position: absolute;
-    font-size: 1.2vw;
-    padding: 1.2vw;
-  }
+  width: 228px;
+  height: 78px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-color: transparent;
+  margin: auto;
 }
 
 .image-container .btn1 {
-  bottom: 10%;
-  right: 15%;
+  right: 25%;
+}
+
+@media screen and (max-width: 1210px) {
+  .image-container .btn1 {
+    right: 40%;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .image-container .btn1 {
+    right: 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .image-container .btn {
+    width: 130px;
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .image-container .btn {
+    width: 100px;
+    height: 45px;
+  }
 }
 
 .image-container .btn2 {
-  bottom: 10%;
   right: 3%;
 }
 
@@ -93,17 +96,14 @@ p {
   background: #000E56;
   color: white;
 }
+
 .footer .links a {
   color: white;
   transition: color 0.2s;
 }
-.footer .links a:hover {
-  text-decoration: none;
-  color: #4180cb;
-}
  
 .custom-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .logo {
