@@ -59,16 +59,20 @@ a:hover {
 }
 
 .image-container .btn1 {
-  right: 25%;
+  right: 30%;
 }
 
-@media screen and (max-width: 1210px) {
-  .image-container .btn1 {
-    right: 40%;
+.image-container .btn2 {
+  right: 3%;
+}
+
+@media screen and (max-width: 992px) {
+  .image-container {
+    display: none;
   }
 }
 
-@media screen and (max-width: 680px) {
+/* @media screen and (max-width: 680px) {
   .image-container .btn1 {
     right: 50%;
   }
@@ -86,11 +90,7 @@ a:hover {
     width: 100px;
     height: 45px;
   }
-}
-
-.image-container .btn2 {
-  right: 3%;
-}
+} */
 
 .footer {
   background: #000E56;

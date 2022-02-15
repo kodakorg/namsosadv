@@ -100,7 +100,7 @@ app.post('/kontaktskjema', function (req, res) {
     })
   } else {
     const mailOptions = {
-      from: "Kontaktskjema <namsosadv@gmail.com>",
+      from: 'namsosadv@gmail.com',
       to: "br@namsosadvokatene.no",
       replyTo: epost,
       subject: "Kontaktskjema Namsosadvokatene",
@@ -152,7 +152,14 @@ app.get('/redesign1/kontakt', function (req, res) {
   })
 });
 
-app.post('/redesign1/kontakt', function (req, res) {
+app.get('/redesign1/kontaktskjema', function (req, res) {
+  res.render('redesign1/pages/kontaktskjema', {
+    sjekk: false,
+    message: null
+  })
+});
+
+app.post('/redesign1/skjema', function (req, res) {
   var navn = req.body.navn;
   var bosted = req.body.bosted;
   var epost = req.body.epost;
@@ -195,7 +202,7 @@ app.post('/redesign1/kontakt', function (req, res) {
   } else {
     console.log("epostkopi: " + epostkopi);
     const mailOptions = {
-      from: "Kontaktskjema <namsosadv@gmail.com>",
+      from: '"namsos advokat" <namsosadv@gmail.com>',
       to: "ole.hustad@gmail.com",
       replyTo: epost,
       subject: "Kontaktskjema Namsosadvokatene",
