@@ -1,35 +1,29 @@
+<div class="footer">
+  <div class="col offset-lg-1 pt-2">
+    <div class="row row-col-3 ps-3">
+      <div class="col-md links pb-5">
+        <h3>Besøksadresse</h3>
+        Carl Guldbrandsons gate 7<br>
+        7801 Namsos<br>
+        Inngang blå dør
+      </div>
+      <div class="col-md links pb-5">
+        <h3>Kontakt</h3>
+        Telefon: 74 22 66 77<br>
+        Telefaks: 74 22 66 78<br>
+        <a href="/kontaktskjema">Kontaktskjema</a>
+      </div>
+      <div class="col-md links pb-2">
+        <h3>Postadresse</h3>
+        Advokat Ivar Hustad AS<br>
+        Postboks 100<br>
+        7801 Namsos
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="/js/jquery.min.js"></script>
 <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/jquery.validate.min.js"></script>
 <script src="/js/additional-methods.min.js"></script>
-
-<script>
-  $("#kontaktskjema").validate({
-    rules: {
-      fnavn: "required",
-      enavn: "required",
-      tlf: {
-        required: true,
-        minlength: 8,
-      },
-      epost: {
-        required: true,
-        email: true
-      },
-      tekst: "required"
-    },
-    messages: {
-      fnavn: "Fornavn må fylles ut",
-      enavn: "Etternavn må fylles ut",
-      tlf: {
-        required: "Telefonnummer må fylles ut",
-        minlengt: "Telefonnummer må være minimum 8 tall",
-      },
-      epost: {
-        required: "Epost må fylles ut",
-        email: "En gyldig e-post adresse må fylles ut f.eks. navn@domene.no"
-      },
-      tekst: "Formål må fylles ut"
-    }
-  });
-</script>

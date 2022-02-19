@@ -1,64 +1,111 @@
 body {
-  background: #373B44;
-  background: -webkit-linear-gradient(to right, #0c647e, #373B44);
-  background: linear-gradient(to right, #0c647e, #373B44);
-  font: sans-serif;
-  overflow: visible;
+  background: white;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 p {
   max-width: 600px;
 }
 
-.error {
-  color: red;
+.content-forsikring {
+  max-width: 1000px;
+  margin: auto;
 }
 
 .header {
-  font-size: 0.8em;
+  background: #00199A;
+  color: white;
+}
+
+.header a {
+  color: white;
+}
+
+a:hover {
+  color: #3a93ff;
+}
+
+.color-primary {
+  background-color: #C1F4FF;
+}
+
+.color-secondary {
+  background-color: #E1FAFF;
+}
+
+.btn {
+  background-color: #C1F4FF;
+  cursor: pointer;
+  bottom: 10%;
+}
+
+.btn:hover {
+  background-color: #E1FAFF;
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-container .btn {
+  position: absolute;
+  width: 228px;
+  height: 78px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-color: transparent;
+  margin: auto;
+}
+
+.image-container .btn1 {
+  right: 30%;
+}
+
+.image-container .btn2 {
+  right: 3%;
+}
+
+@media screen and (max-width: 992px) {
+  .image-container {
+    display: none;
+  }
+}
+
+/* @media screen and (max-width: 680px) {
+  .image-container .btn1 {
+    right: 50%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .image-container .btn {
+    width: 130px;
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .image-container .btn {
+    width: 100px;
+    height: 45px;
+  }
+} */
+
+.footer {
+  background: #000E56;
+  color: white;
+}
+
+.footer .links a {
+  color: white;
+  transition: color 0.2s;
+}
+ 
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .logo {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  color: white;
-  width: 100%;
-  max-width: 600px;
-  text-align: left;
-  padding: 1em 1em 1em 0.5em;
-  line-height: normal;
-}
-
-span { 
-  font-size: 1.5em;
-}
-
-span b {
-  font-size: 2em;
-  font-weight: normal;
-}
-
-.map-responsive{
-  overflow:hidden;
-  padding-bottom:56.25%;
-  position:relative;
-  height:0;
-}
-
-.map-responsive iframe{
-  left:0;
-  top:0;
-  height:100%;
-  width:100%;
-  position:absolute;
-}
-
-@media screen and (max-width: 420px) {
-  span { 
-    font-size: 1em;
-  }
-  
-  span b {
-    font-size: 1.5em;
-    font-weight: normal;
-  }
+  font-family: 'Merriweather Sans', sans-serif;
 }

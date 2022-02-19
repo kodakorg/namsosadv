@@ -3,6 +3,11 @@
 
 <head>
   <% include ../partials/head %>
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
 </head>
 
 <body>
@@ -11,38 +16,83 @@
     <% include ../partials/header %>
   </header>
 
-  <div class="bg-white p-3">
-    <h3>Kontaktskjema</h3>
-    <form action="/kontaktskjema" id="kontaktskjema" method="post">
-      <div>
-        <label for="fnavn" class="form-label fw-bold">Fornavn:</label>
-        <input type="text" class="form-control" name="fnavn" required>
+  <div class="row offset-lg-1">
+    <div class="col-md">
+      <div class="card border m-3 shadow" style="max-width: 400px;">
+        <div class="color-secondary text-center rounded-top pt-3 pb-3 shadow">
+          <h5>Kontaktskjema</h5>
+        </div>
+        <div class="p-4">
+          <form action="/skjema" id="kontaktskjema" method="post">
+            <div class="pb-3">
+              <label for="navn" class="form-label fw-bold">Navn:</label>
+              <input placeholder="Ditt navn" type="text" class="form-control" name="navn" required>
+            </div>
+            <div class="pb-3">
+              <label for="bosted" class="form-label fw-bold">Bosted:</label>
+              <input placeholder="Ditt bosted" type="text" class="form-control" name="bosted" required>
+            </div>
+            <div class="pb-3">
+              <label for="epost" class="form-label fw-bold">E-post:</label>
+              <input placeholder="Din e-post adresse" type="text" id="epost" class="form-control" name="epost">
+            </div>
+            <div class="pb-3">
+              <label for="tlf" class="form-label fw-bold">Telefonnummer:</label>
+              <input placeholder="Ditt telefonnummer" type="number" class="form-control" name="tlf">
+            </div>
+            <div class="pb-3">
+              <label for="tekst" class="form-label fw-bold">Forespørsel:</label>
+              <textarea placeholder="Hva gjelder hendvendelsen" class="form-control" id="tekst" name="tekst"
+                rows="3"></textarea>
+            </div>
+            <div>
+              <input id="epostkopi" name="epostkopi" class="form-check-input" type="checkbox">
+              <label for="epostkopi" class="form-label fw-bold">Send kopi til min e-post</label>
+            </div>
+            <br>
+            <div class="d-flex justify-content-center pb-4">
+              <button class="btn border shadow" style="width: 100%;" id="myButton">Send</button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div>
-        <label for="enavn" class="form-label fw-bold">Etternavn:</label>
-        <input type="text" class="form-control" name="enavn">
-      </div>
-      <div>
-        <label for="epost" class="form-label fw-bold">E-post:</label>
-        <input type="text" id="epost" class="form-control" name="epost">
-      </div>
-      <div>
-        <label for="tlf" class="form-label fw-bold">Telefonnummer:</label>
-        <input type="number" class="form-control" name="tlf">
-      </div>
-      <div>
-        <label for="tekst" class="form-label fw-bold">Forespørsel:</label>
-        <textarea class="form-control" id="tekst" name="tekst" rows="3"></textarea>
-      </div>
-      <br>
-      <button class="btn btn-primary" id="myButton">Send</button>
-    </form>
+    </div>
   </div>
-  <br>
 
   <footer>
     <% include ../partials/foother %>
   </footer>
+
+  <script>
+    $("#kontaktskjema").validate({
+      rules: {
+        navn: "required",
+        bosted: "required",
+        tlf: {
+          required: true,
+          minlength: 8,
+        },
+        epost: {
+          required: true,
+          email: true
+        },
+        tekst: "required"
+      },
+      messages: {
+        navn: "Navn må fylles ut",
+        bosted: "Bosted må fylles ut",
+        tlf: {
+          required: "Telefonnummer må fylles ut",
+          minlengt: "Telefonnummer må være minimum 8 tall",
+        },
+        epost: {
+          required: "Epost må fylles ut",
+          email: "En gyldig e-post adresse må fylles ut f.eks. navn@domene.no"
+        },
+        tekst: "Forespørsel må fylles ut"
+      }
+    });
+  </script>
 
 </body>
 

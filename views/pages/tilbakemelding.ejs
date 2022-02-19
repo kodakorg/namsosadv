@@ -6,28 +6,29 @@
 </head>
 
 <body>
+  <div class="content">
+    <header>
+      <% include ../partials/header %>
+    </header>
 
-  <header>
-    <% include ../partials/header %>
-  </header>
+    <div class="bg-white p-3" id="tilbakemelding">
+      <% if (sjekk) { %>
+        <p>Takk for forespørselen!</p>
+        <p>Skjemaet er sendt til Namsosadvokatene</p>
+        <% } else { %>
+          <p>Feil ved innsending av skjema:</p>
+          <p>
+            <%= message %>
+          </p>
+          <% } %>
+    </div>
+    <br>
 
-  <div class="bg-white p-3" id="tilbakemelding">
-    <% if (sjekk) { %>
-      <p>Takk for forespørselen!</p>
-      <p>Skjemaet er sendt til Namsos Advokatene</p>
-      <% } else { %>
-        <p>Feil ved innsending av skjema:</p>
-        <p>
-          <%= message %>
-        </p>
-        <% } %>
+    <footer>
+      <% include ../partials/foother %>
+    </footer>
+
   </div>
-  <br>
-
-  <footer>
-    <% include ../partials/foother %>
-  </footer>
-
 </body>
 
 </html>

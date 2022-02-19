@@ -35,12 +35,16 @@ app.get('/', function (req, res) {
   res.render('pages/hovedside');
 });
 
+app.get('/kompetanse', function (req, res) {
+  res.render('pages/kompetanse');
+});
+
 app.get('/omoss', function (req, res) {
   res.render('pages/omoss');
 });
 
-app.get('/finansiering', function (req, res) {
-  res.render('pages/finansiering');
+app.get('/priser', function (req, res) {
+  res.render('pages/priser');
 });
 
 app.get('/forsikring', function (req, res) {
@@ -48,37 +52,40 @@ app.get('/forsikring', function (req, res) {
 });
 
 app.get('/kontakt', function (req, res) {
-  res.render('pages/kontakt');
+  res.render('pages/kontakt', {
+    sjekk: false,
+    message: null
+  })
 });
 
 app.get('/kontaktskjema', function (req, res) {
-  res.render('pages/kontaktskjema');
+  res.render('pages/kontaktskjema', {
+    sjekk: false,
+    message: null
+  })
 });
 
-app.get('/kart', function (req, res) {
-  res.render('pages/kart');
-});
-
-app.post('/kontaktskjema', function (req, res) {
-  var fnavn = req.body.fnavn;
-  var enavn = req.body.enavn;
+app.post('/skjema', function (req, res) {
+  var navn = req.body.navn;
+  var bosted = req.body.bosted;
   var epost = req.body.epost;
   var tlf = req.body.tlf;
   var tekst = req.body.tekst;
+  var epostkopi = req.body['epostkopi'];
   var html_string = "";
 
-  html_string += "Fornavn: " + fnavn + "<br>";
-  html_string += "Etternavn: " + enavn + "<br><br>";
+  html_string += "Navn: " + navn + "<br><br>";
+  html_string += "Bosted: " + bosted + "<br><br>";
   html_string += "Epost: " + epost + "<br>";
   html_string += "Telefonnummer: " + tlf + "<br><br>";
   html_string += "Forespørsel: " + tekst;
 
-  if (typeof fnavn === 'undefined' || fnavn === null || fnavn === '') {
+  if (typeof navn === 'undefined' || navn === null || navn === '') {
     res.render('pages/tilbakemelding', {
       sjekk: false,
       message: "Fornavn mangler eller er tom"
     })
-  } else if (typeof enavn === 'undefined' || enavn === null || enavn === '') {
+  } else if (typeof bosted === 'undefined' || bosted === null || bosted === '') {
     res.render('pages/tilbakemelding', {
       sjekk: false,
       message: "Etternavn mangler eller er tom"
@@ -99,13 +106,18 @@ app.post('/kontaktskjema', function (req, res) {
       message: "Forespørsel er tom"
     })
   } else {
+    console.log("epostkopi: " + epostkopi);
     const mailOptions = {
-      from: 'namsosadv@gmail.com',
-      to: "br@namsosadvokatene.no",
+      from: '"namsos advokat" <namsosadv@gmail.com>',
+      to: "ole.hustad@gmail.com",
       replyTo: epost,
       subject: "Kontaktskjema Namsosadvokatene",
       text: html_string,
       html: "<b>" + html_string + "</b>",
+    }
+
+    if (epostkopi) {
+      mailOptions.cc = epost;
     }
 
     transporter.sendMail(mailOptions, function (err, result) {

@@ -6,24 +6,41 @@
 </head>
 
 <body>
-
   <header>
     <% include ../partials/header %>
   </header>
 
-  <div class="bg-white p-3">
-    <p>Advokatfirmaet driver alminnelig praksis i Namsos og ble etablert av høyesterettsadvokat Wennevik i 1941.</p>
-    <p>Vi bistår privatpersoner, bedrifter og offentlige etater med rådgivning og sakførsel i domstolene. Vi fører
-      mange saker om fast eiendoms rettsforhold, forretningsjus og offentlig rett i domstolene. Vi er bobestyrere i
-      konkurs og offentlig skifte av dødsbo.</p>
-    <p>Vi har i mange år bistått i ulike situasjoner og saker. Det har gitt oss erfaring og utviklet vår innsikt og
-      kompetanse. Vi bestreber oss på å yte bistand med en sterk faglig og etisk forankring.</p>
-    <img class="img-fluid" src="images/kontoret.png" alt="kontoret"><br>
-    <p>Kontorene i Carl Gulbransonsgt 7, Namsos. Inngang blå dør.</p>
-    <p>Advokatene har tillatelse til å drive advokatvirksomhet av <a href="https://tilsynet.no/">Tilsynsrådet for
-        advokatvirksomhet</a>.</p>
+  <div class="image-container">
+    <img class="img-fluid" src="images/forside.jpg" alt="namsos">
+    <a href="/kontakt" class="btn btn1">Kontakt oss</a>
+    <a href="/kompetanse" class="btn btn2">Kompetanse</a>
   </div>
-  <br>
+  <div class="col offset-lg-1 pt-3">
+    <div class="col ps-4" style="max-width: 600px;">
+      <p>Vi bistår privatpersoner, bedrifter og offentlige etater med
+        rådgiving og sakførsel i domstolene og har bred kompetanse og lang erfaring.</p>
+    </div>
+
+    <div class="row row-col-2 p-0 m-0 mx-lg-auto">
+      <div class="col-auto pb-3" style="max-width: 320px;">
+        <div class="card shadow p-4" style="max-width: 250px;height: 220px;">
+          <p class="card-text">Kontakt oss for alt fra enkle spørsmål til kompliserte juridiske oppgaver.</p>
+          <a href="/kontakt" class="btn shadow card-link">Kontakt oss</a>
+        </div>
+      </div>
+
+      <div class="col-auto pb-3" style="max-width: 300px;">
+        <div class="card shadow p-4 color-primary" style="max-width: 250px;height: 220px;">
+          <p class="card-text">Advokatfirmaet ble etablert av høyesterettsadvokat Wennevik i 1941 og driver i dag
+            alminnelig praksis i Namsos med møterett i Høyesterett.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.getElementById("hovedside").classList.add("active");
+  </script>
 
   <footer>
     <% include ../partials/foother %>
