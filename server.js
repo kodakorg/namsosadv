@@ -125,41 +125,41 @@ app.post('/kontaktskjema', function (req, res) {
 ////////////////
 // REDESIGN 1 //
 ////////////////
-app.get('/redesign1', function (req, res) {
-  res.render('redesign1/pages/hovedside');
+app.get('/redesign', function (req, res) {
+  res.render('redesign/pages/hovedside');
 });
 
-app.get('/redesign1/kompetanse', function (req, res) {
-  res.render('redesign1/pages/kompetanse');
+app.get('/redesign/kompetanse', function (req, res) {
+  res.render('redesign/pages/kompetanse');
 });
 
-app.get('/redesign1/omoss', function (req, res) {
-  res.render('redesign1/pages/omoss');
+app.get('/redesign/omoss', function (req, res) {
+  res.render('redesign/pages/omoss');
 });
 
-app.get('/redesign1/priser', function (req, res) {
-  res.render('redesign1/pages/priser');
+app.get('/redesign/priser', function (req, res) {
+  res.render('redesign/pages/priser');
 });
 
-app.get('/redesign1/forsikring', function (req, res) {
-  res.render('redesign1/pages/forsikring');
+app.get('/redesign/forsikring', function (req, res) {
+  res.render('redesign/pages/forsikring');
 });
 
-app.get('/redesign1/kontakt', function (req, res) {
-  res.render('redesign1/pages/kontakt', {
+app.get('/redesign/kontakt', function (req, res) {
+  res.render('redesign/pages/kontakt', {
     sjekk: false,
     message: null
   })
 });
 
-app.get('/redesign1/kontaktskjema', function (req, res) {
-  res.render('redesign1/pages/kontaktskjema', {
+app.get('/redesign/kontaktskjema', function (req, res) {
+  res.render('redesign/pages/kontaktskjema', {
     sjekk: false,
     message: null
   })
 });
 
-app.post('/redesign1/skjema', function (req, res) {
+app.post('/redesign/skjema', function (req, res) {
   var navn = req.body.navn;
   var bosted = req.body.bosted;
   var epost = req.body.epost;
@@ -175,27 +175,27 @@ app.post('/redesign1/skjema', function (req, res) {
   html_string += "Forespørsel: " + tekst;
 
   if (typeof navn === 'undefined' || navn === null || navn === '') {
-    res.render('redesign1/pages/tilbakemelding', {
+    res.render('redesign/pages/tilbakemelding', {
       sjekk: false,
       message: "Fornavn mangler eller er tom"
     })
   } else if (typeof bosted === 'undefined' || bosted === null || bosted === '') {
-    res.render('redesign1/pages/tilbakemelding', {
+    res.render('redesign/pages/tilbakemelding', {
       sjekk: false,
       message: "Etternavn mangler eller er tom"
     })
   } else if (!validateEmail(epost)) {
-    res.render('redesign1/pages/tilbakemelding', {
+    res.render('redesign/pages/tilbakemelding', {
       sjekk: false,
       message: "Epost er feil formatert"
     })
   } else if (typeof tlf === 'undefined' || tlf === null || tlf === '') {
-    res.render('redesign1/pages/tilbakemelding', {
+    res.render('redesign/pages/tilbakemelding', {
       sjekk: false,
       message: "Telefonnummer mangler"
     })
   } else if (typeof tekst === 'undefined' || tekst === null || tekst === '') {
-    res.render('redesign1/pages/tilbakemelding', {
+    res.render('redesign/pages/tilbakemelding', {
       sjekk: false,
       message: "Forespørsel er tom"
     })
@@ -216,13 +216,13 @@ app.post('/redesign1/skjema', function (req, res) {
 
     transporter.sendMail(mailOptions, function (err, result) {
       if (err) {
-        res.render('redesign1/pages/tilbakemelding', {
+        res.render('redesign/pages/tilbakemelding', {
           sjekk: false,
           message: err
         })
       } else {
         transporter.close();
-        res.render('redesign1/pages/tilbakemelding', { sjekk: true })
+        res.render('redesign/pages/tilbakemelding', { sjekk: true })
       }
     })
   }
