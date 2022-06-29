@@ -9,14 +9,14 @@ var favicon = require('serve-favicon');
 var path = require("path");
 require('dotenv').config()
 
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use('/css', express.static(path.join(__dirname, 'public/css')))
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(morgan('combined'));
 
 app.set('view engine', 'ejs');
-app.set('trust proxy', 1)
+app.set('trust proxy', 1);
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -135,7 +135,7 @@ app.post('/skjema', function (req, res) {
 });
 
 ////////////////
-// REDESIGN 1 //
+// REDESIGN   //
 ////////////////
 app.get('/redesign', function (req, res) {
   res.render('redesign/pages/hovedside');
