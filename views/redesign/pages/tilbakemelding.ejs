@@ -2,30 +2,30 @@
 <html lang="en">
 
 <head>
-  <% include ../partials/head %>
+  <%- include('../partials/head') -%>
 </head>
 
 <body>
   <div class="content">
     <header>
-      <% include ../partials/header %>
+      <%- include('../partials/header') -%>
     </header>
 
     <div class="bg-white p-3" id="tilbakemelding">
       <% if (sjekk) { %>
-        <p>Takk for forespørselen!</p>
-        <p>Skjemaet er sendt til Namsosadvokatene</p>
-        <% } else { %>
-          <p>Feil ved innsending av skjema:</p>
-          <p>
-            <%= message %>
-          </p>
-          <% } %>
+      <p>Takk for forespørselen!</p>
+      <p>Skjemaet er sendt til Namsosadvokatene</p>
+      <% } else { %>
+      <p>Feil ved innsending av skjema:</p>
+      <p>
+        <%= message %>
+      </p>
+      <% } %>
     </div>
     <br>
 
     <footer>
-      <% include ../partials/foother %>
+      <%- include('../partials/foother') -%>
     </footer>
 
   </div>
