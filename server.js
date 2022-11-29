@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000
+const port = 3333
 const nodemailer = require('nodemailer');
 const http = require("http");
 
@@ -239,10 +239,6 @@ app.post('/redesign/skjema', function (req, res) {
     })
   }
 });
-
-setInterval(function () {
-  http.get("http://namsosadvokatene.no/");
-}, 1200000);
 
 app.listen(process.env.PORT || port, () => {
   console.log(`App listening at http://localhost:${port}`)
