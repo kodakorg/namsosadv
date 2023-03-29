@@ -2,9 +2,14 @@
   "name": "namsosadv",
   "version": "1.0.0",
   "description": "Hjemmeside til namsos advokatene",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kodakmoment/namsosadv.git"
+  },
   "main": "server.js",
   "scripts": {
-    "start": "node server"
+    "start": "node server",
+    "dev": "nodemon -e js,css,ejs server"
   },
   "author": "Ole Severin Hustad",
   "license": "ISC",
