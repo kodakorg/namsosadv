@@ -39,7 +39,7 @@ a:hover {
 }
 
 #forside {
-  height: 540px;
+  height: 400px;
   width: 100%;
 }
 
@@ -50,23 +50,23 @@ a:hover {
   }
 }
 
-@media screen and (min-width: 576px) and (max-width: 768px) {
+@media screen and (min-width: 577px) and (max-width: 768px) {
   #forside {
     height: 200px;
     width: 100%;
   }
 }
 
-@media screen and (min-width: 768px) and (max-width: 992px) {
+@media screen and (min-width: 769px) and (max-width: 992px) {
   #forside {
     height: 300px;
     width: 100%;
   }
 }
 
-@media screen and (min-width: 992px) and (max-width: 1200px) {
+@media screen and (min-width: 993px) and (max-width: 1600px) {
   #forside {
-    height: 400px;
+    height: 330px;
     width: 100%;
   }
 }
