@@ -132,8 +132,7 @@ app.post('/skjema', function (req, res) {
     } else {
       const mailOptions = {
         from: '"namsos advokat" <namsosadv@gmail.com>',
-        //to: "br@namsosadvokatene.no",
-        to: "ole.hustad@gmail.com",
+        to: "br@namsosadvokatene.no",
         replyTo: epost,
         subject: "Kontaktskjema Namsosadvokatene",
         text: html_string,
