@@ -3,11 +3,11 @@
 
 <head>
   <%- include('../partials/head') -%>
-    <style>
-      .error {
-        color: red;
-      }
-    </style>
+  <style>
+    .error {
+      color: red;
+    }
+  </style>
 </head>
 
 <body>
@@ -46,6 +46,8 @@
         </div>
         <div class="p-4">
           <form action="/skjema" id="kontaktskjema" method="post">
+            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+            <input type="hidden" name="action" value="validate_captcha">
             <div class="pb-3">
               <label for="navn" class="form-label fw-bold">Navn:</label>
               <input placeholder="Ditt navn" type="text" class="form-control" name="navn" required>
@@ -117,6 +119,15 @@
         },
         tekst: "Forespørsel må fylles ut"
       }
+    });
+  </script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6Lf_HqQmAAAAAL7aay4H5Sciw_L0BMolKVkU605D"></script>
+  <script>
+    grecaptcha.ready(function () {
+      grecaptcha.execute('6Lf_HqQmAAAAAL7aay4H5Sciw_L0BMolKVkU605D', { action: 'validate_captcha' })
+        .then(function (token) {
+          document.getElementById('g-recaptcha-response').value = token;
+        });
     });
   </script>
 

@@ -3,6 +3,7 @@ const app = express();
 const port = 3333
 const nodemailer = require('nodemailer');
 const http = require("http");
+const request = require('request');
 
 var morgan = require('morgan')
 var favicon = require('serve-favicon');
@@ -66,72 +67,96 @@ app.get('/kontaktskjema', function (req, res) {
 });
 
 app.post('/skjema', function (req, res) {
-  var navn = req.body.navn;
-  var bosted = req.body.bosted;
-  var epost = req.body.epost;
-  var tlf = req.body.tlf;
-  var tekst = req.body.tekst;
-  var epostkopi = req.body['epostkopi'];
-  var html_string = "";
-
-  html_string += "Navn: " + navn + "<br><br>";
-  html_string += "Bosted: " + bosted + "<br><br>";
-  html_string += "Epost: " + epost + "<br>";
-  html_string += "Telefonnummer: " + tlf + "<br><br>";
-  html_string += "Forespørsel: " + tekst;
-
-  if (typeof navn === 'undefined' || navn === null || navn === '') {
+  if (req.body['g-recaptcha-response'] === undefined || req.body['g-recaptcha-response'] === '' || req.body['g-recaptcha-response'] === null) {
+    console.log("Error! -> body: ");
+    console.dir(body);
     res.render('pages/tilbakemelding', {
       sjekk: false,
-      message: "Fornavn mangler eller er tom"
-    })
-  } else if (typeof bosted === 'undefined' || bosted === null || bosted === '') {
-    res.render('pages/tilbakemelding', {
-      sjekk: false,
-      message: "Etternavn mangler eller er tom"
-    })
-  } else if (!validateEmail(epost)) {
-    res.render('pages/tilbakemelding', {
-      sjekk: false,
-      message: "Epost er feil formatert"
-    })
-  } else if (typeof tlf === 'undefined' || tlf === null || tlf === '') {
-    res.render('pages/tilbakemelding', {
-      sjekk: false,
-      message: "Telefonnummer mangler"
-    })
-  } else if (typeof tekst === 'undefined' || tekst === null || tekst === '') {
-    res.render('pages/tilbakemelding', {
-      sjekk: false,
-      message: "Forespørsel er tom"
-    })
-  } else {
-    console.log("epostkopi: " + epostkopi);
-    const mailOptions = {
-      from: '"namsos advokat" <namsosadv@gmail.com>',
-      to: "br@namsosadvokatene.no",
-      replyTo: epost,
-      subject: "Kontaktskjema Namsosadvokatene",
-      text: html_string,
-      html: "<b>" + html_string + "</b>",
-    }
-
-    if (epostkopi) {
-      mailOptions.cc = epost;
-    }
-
-    transporter.sendMail(mailOptions, function (err, result) {
-      if (err) {
-        res.render('pages/tilbakemelding', {
-          sjekk: false,
-          message: err
-        })
-      } else {
-        transporter.close();
-        res.render('pages/tilbakemelding', { sjekk: true })
-      }
+      message: "Something went wrong"
     })
   }
+
+  let navn = req.body.navn;
+  let bosted = req.body.bosted;
+  let epost = req.body.epost;
+  let tlf = req.body.tlf;
+  let tekst = req.body.tekst;
+  let epostkopi = req.body['epostkopi'];
+  let html_string = "";
+  const secretKey = process.env.CAPTCHA_SECRET_KEY;
+  const verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + req.body['g-recaptcha-response'] + "&remoteip=" + req.connection.remoteAddress;
+
+  request(verificationURL, function (error, response, body) {
+    body = JSON.parse(body);
+
+    console.log("body: ");
+    console.dir(body);
+
+    if (body.success !== undefined && !body.success) {
+      res.render('pages/tilbakemelding', {
+        sjekk: false,
+        message: "Failed captcha verification: " + body.score
+      })
+    }
+    html_string += "Navn: " + navn + "<br><br>";
+    html_string += "Bosted: " + bosted + "<br><br>";
+    html_string += "Epost: " + epost + "<br>";
+    html_string += "Telefonnummer: " + tlf + "<br><br>";
+    html_string += "Forespørsel: " + tekst;
+
+    if (typeof navn === 'undefined' || navn === null || navn === '') {
+      res.render('pages/tilbakemelding', {
+        sjekk: false,
+        message: "Fornavn mangler eller er tom"
+      })
+    } else if (typeof bosted === 'undefined' || bosted === null || bosted === '') {
+      res.render('pages/tilbakemelding', {
+        sjekk: false,
+        message: "Etternavn mangler eller er tom"
+      })
+    } else if (!validateEmail(epost)) {
+      res.render('pages/tilbakemelding', {
+        sjekk: false,
+        message: "Epost er feil formatert"
+      })
+    } else if (typeof tlf === 'undefined' || tlf === null || tlf === '') {
+      res.render('pages/tilbakemelding', {
+        sjekk: false,
+        message: "Telefonnummer mangler"
+      })
+    } else if (typeof tekst === 'undefined' || tekst === null || tekst === '') {
+      res.render('pages/tilbakemelding', {
+        sjekk: false,
+        message: "Forespørsel er tom"
+      })
+    } else {
+      const mailOptions = {
+        from: '"namsos advokat" <namsosadv@gmail.com>',
+        //to: "br@namsosadvokatene.no",
+        to: "ole.hustad@gmail.com",
+        replyTo: epost,
+        subject: "Kontaktskjema Namsosadvokatene",
+        text: html_string,
+        html: "<b>" + html_string + "</b>",
+      }
+
+      if (epostkopi) {
+        mailOptions.cc = epost;
+      }
+
+      transporter.sendMail(mailOptions, function (err, result) {
+        if (err) {
+          res.render('pages/tilbakemelding', {
+            sjekk: false,
+            message: err
+          })
+        } else {
+          transporter.close();
+          res.render('pages/tilbakemelding', { sjekk: true })
+        }
+      })
+    }
+  });
 });
 
 app.listen(process.env.PORT || port, () => {
