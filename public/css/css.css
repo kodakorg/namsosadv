@@ -1,6 +1,7 @@
 body {
   background: white;
   font-family: 'Ubuntu', sans-serif;
+  padding-bottom: 120px;
 }
 
 p {
@@ -43,6 +44,12 @@ a:hover {
   width: 100%;
 }
 
+.footer {
+  background: #000E56;
+  color: white;
+  height: 120px;
+}
+
 @media screen and (min-width: 1px) and (max-width: 576px) {
   #forside {
     height: 150px;
@@ -54,6 +61,16 @@ a:hover {
   #forside {
     height: 200px;
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    height: auto;
+  }
+
+  body {
+    padding-bottom: 0;
   }
 }
 
@@ -69,11 +86,6 @@ a:hover {
     height: 330px;
     width: 100%;
   }
-}
-
-.footer {
-  background: #000E56;
-  color: white;
 }
 
 .footer .links a {
